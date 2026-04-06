@@ -1,0 +1,203 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #3b82f6;
+    
+    --red-glow: rgba(239, 68, 68, 0.6);
+    --yellow-glow: rgba(234, 179, 8, 0.6);
+    --green-glow: rgba(34, 197, 94, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.video-container {
+    flex: 1;
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 300px;
+    width: 100%;
+}
+
+#videoFeed {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.status-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.info-panel {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.color-indicator {
+    background: #0f172a;
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 2px solid #334155;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.light {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #334155;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Active states for lights */
+.light.red.active {
+    background-color: #ef4444;
+    box-shadow: 0 0 30px var(--red-glow), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+.light.yellow.active {
+    background-color: #eab308;
+    box-shadow: 0 0 30px var(--yellow-glow), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+.light.green.active {
+    background-color: #22c55e;
+    box-shadow: 0 0 30px var(--green-glow), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+
+.current-status {
+    text-align: center;
+}
+
+.current-status h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+#colorText {
+    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+#colorText.none { color: var(--text-secondary); }
+#colorText.red { color: #ef4444; text-shadow: 0 0 10px var(--red-glow); }
+#colorText.yellow { color: #eab308; text-shadow: 0 0 10px var(--yellow-glow); }
+#colorText.green { color: #22c55e; text-shadow: 0 0 10px var(--green-glow); }
+
+.controls {
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn.active {
+    background: #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.help-text {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
